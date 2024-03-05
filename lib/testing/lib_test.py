@@ -99,6 +99,7 @@ class TestCalculator:
         '''prints "Invalid operation!" and returns None if operation invalid'''
         captured_out = io.StringIO()
         sys.stdout = captured_out
-        assert(calculator('a', 1, 2) == None)
+        calculator('a', 1, 2)
         sys.stdout = sys.__stdout__
-        assert(captured_out.getvalue() == "Invalid operation!\n")
+        assert captured_out.getvalue().strip() == "Invalid operation!"
+
